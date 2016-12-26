@@ -10,12 +10,15 @@ int main(int argc, char *argv[])
 
 	for (int i = 0; i < size; i++)
 	{
-		charMap.insert(pair<char, int>(string[i], 0));
-	}
-
-	for (int i = 0; i < size; i++)
-	{
-		charMap[string[i]]++;
+		if (charMap.count(string[i]) < 1)
+		{
+			charMap.insert(pair<char, int>(string[i], 1));
+		}
+		else
+		{
+			charMap[string[i]]++;
+		}
+		
 	}
 
 	for (map<char, int>::iterator it = charMap.begin(); it != charMap.end(); ++it)
